@@ -1,5 +1,4 @@
-def OPN():
-    list_from_string = input().split()
+def OPN(list_from_string):
     stek = []
     result = 0
     for i in range(len(list_from_string)):
@@ -29,4 +28,5 @@ def OPN():
             stek.append(list_from_string[i])
     print(stek[0])
 
-OPN()
+list_from_string = input().split()
+OPN(list_from_string)
