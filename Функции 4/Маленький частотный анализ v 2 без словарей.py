@@ -1,4 +1,23 @@
 #спросить про конструкцию, когда идет цикл с ренджем в длинну списка и внутри цикла происходит уменьшение этого списка за счет pop. Как лучше делать с такой конструкцией
+def little_frequency_analysis():
+    global string
+    global list_of_chars
+    global list_of_count
+    global counter
+    global distance_between_big_and_small__letters  
+    global maxim
+    string = input()
+    list_of_chars = []
+    list_of_count = []
+    counter = 0
+    distance_between_big_and_small__letters = ord('а') - ord('А')    
+    maxim = []
+    verify_big_letter(string)
+    count_of_chars(list_of_chars, list_of_count)
+    del_charTrue_from_list(list_of_chars)
+    maximum_value_definition()
+    print_first_maxim_in_alphabetical_order()
+    
 
 def verify_big_letter(stringList):
     global list_of_chars
@@ -69,24 +88,7 @@ def print_first_maxim_in_alphabetical_order():
     print(value_maxim)
 
 
-def little_frequency_analysis():
-    global string
-    global list_of_chars
-    global list_of_count
-    global counter
-    global distance_between_big_and_small__letters  
-    global maxim
-    string = input()
-    list_of_chars = []
-    list_of_count = []
-    counter = 0
-    distance_between_big_and_small__letters = ord('а') - ord('А')    
-    maxim = []
-    verify_big_letter(string)
-    count_of_chars(list_of_chars, list_of_count)
-    del_charTrue_from_list(list_of_chars)
-    maximum_value_definition()
-    print_first_maxim_in_alphabetical_order()
+
 
 
 
