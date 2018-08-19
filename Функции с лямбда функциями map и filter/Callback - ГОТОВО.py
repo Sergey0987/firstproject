@@ -1,3 +1,5 @@
+from functools import reduce
+
 def main():
     askPassword(success, failure)
 
@@ -31,7 +33,6 @@ def countVowelLettersInPassword (password, vowel_letters):
     return count_letters_as_zero
 
 def verifyConsonantLettersAndSequence(login, password):
-    from functools import reduce
     login_consonant_letter = list(filter(lambda letter: ord('a') <= ord(letter) and ord(letter) <= ord('z')
                                          and letter != 'a' and letter != 'e' and letter != 'i' and letter != 'o' and letter != 'u' and letter != 'y', login))
     summ_login_consonant_letter = reduce(lambda x,y: x + y, login_consonant_letter)
