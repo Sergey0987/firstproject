@@ -3,19 +3,19 @@ from functools import reduce
 def main():
     askPassword(success, failure)
 
-def fromBifLettersToSmall(login, password):
+def fromBigLettersToSmall(login, password):
     login_new = ''
     password_new = ''
     delta_big_and_small_letters = 32
     for i in login:
         if ord(i) >= ord('A') and ord(i) <= ord('Z'):
-            login_new = login_new + chr(ord(i) + 32)
+            login_new = login_new + chr(ord(i) + delta_big_and_small_letters)
         else:
             login_new = login_new + i
 
     for i in password:
         if ord(i) >= ord('A') and ord(i) <= ord('Z'):
-            password_new = password_new + chr(ord(i) + 32)
+            password_new = password_new + chr(ord(i) + delta_big_and_small_letters)
         else:
             password_new = password_new + i    
     return login_new, password_new
