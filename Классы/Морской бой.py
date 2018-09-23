@@ -32,7 +32,6 @@ class ships:
                 if y >= self.ship_y and y < (self.ship_y + self.number_of_palybs):
                     if self.palybs[y - self.ship_y] == True:
                         self.palybs[y - self.ship_y] = False
-                        showMeShip()
                         if self.__isKillShip() == True:
                             return self.KILL
                         else:
@@ -49,7 +48,7 @@ class ships:
         if self.ship_y == y:
             if x >= self.ship_x and x < (self.ship_x + self.number_of_palybs):
                 if self.palybs[x - self.ship_x] == True:
-                    self.palybs[x - self.ship_x] == False
+                    self.palybs[x - self.ship_x] = False
                     if self.__isKillShip() == True:
                         return self.KILL
                     else:
@@ -66,13 +65,23 @@ class field:
         self.x = x
         self.y = y
 
-a = ships(2, 'vf', 5, 3)
+a = ships(3, 'vf', 5, 3)
+a.showMeShip()
 
 print(a.getDammage(5,3))
+a.showMeShip()
+
 print(a.getDammage(5,3))
+a.showMeShip()
 
 print(a.getDammage(3,3))
+a.showMeShip()
+
 print(a.getDammage(6,3))
+a.showMeShip()
 
 print(a.getDammage(7,3))
+a.showMeShip()
+
 print(a.getDammage(8,3))
+a.showMeShip()
