@@ -70,7 +70,7 @@ subtype_table = Table('subtypes', metadata,
 table_types_and_subtypes_upload_process = Table('upload_process', metadata,
     Column('id', Integer, primary_key = True),
     Column('table_name', String),
-    Column('result_of_upload', String)
+    Column('result_of_upload', Integer)
 )
 
 metadata.create_all(engine)
@@ -147,13 +147,14 @@ def zapolnenie_table_types_and_subtypes_upload_process():
     session2.close()
 
 def zapolnenie_table_types():
-    session4 = Session()
-    session4.add_all([Types('Товар'), Types('Услуга')])
-    session4.commit()
-    session4.close()
+    session5 = Session()
+    session5.add_all([Types('Товар'), Types('Услуга')])
+    session5.commit()
+    session5.close()
 
 def zapolnenie_table_subtype():
     session6 = Session()
+    print(111)
     session6.add_all([Subtype('Овощи и фрукты', 1), Subtype('Образование', 2)])
     session6.commit()
     session6.close()
@@ -161,24 +162,33 @@ def zapolnenie_table_subtype():
 def verify_table_types():
     session3 = Session()
     for row in session3.query(Types_and_subtypes_upload_process):
-        #if Types_and_subtypes_upload_process.table_name == 'Types' and Types_and_subtypes_upload_process.result_of_upload == 0:
-         #   zapolnenie_table_types()
-        if Types_and_subtypes_upload_process.table_name == 'Subtype' and Types_and_subtypes_upload_process.result_of_upload == 0:
-            zapolnenie_table_subtype()
+        if row.table_name == 'Types' and row.result_of_upload == 0:
+            zapolnenie_table_types()       
     session3.close()
+
+def verify_table_subtypes():
+    session121 = Session()
+    for row in session121.query(Types_and_subtypes_upload_process):
+        if row.table_name == 'Subtype' and row.result_of_upload == 0:
+            print(1654)
+            zapolnenie_table_subtype        
+    session121.close()
 
 verify_table_types_and_subtypes_upload_process()
 verify_table_types()
+verify_table_subtypes()
 
-session8 = Session()# работает
-for row in session8.query(Types_and_subtypes_upload_process):
-    print(row.id, row.table_name, row.result_of_upload)
-session8.close()
+#session = Session()
+#for row in session.query(Types):
+#    print(row.name)
+#session.close()
 
-session9 = Session() #НЕРАБОТАЕТ
-for row in session9.query(Subtype):
-    print(row)
-session8.close()
+session43 = Session()
+for row in session43.query(Subtype):
+    print(1)
+    print(row.name)
+session43.close()
+
 
 app = Flask(__name__)
 
